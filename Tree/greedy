@@ -1,0 +1,35 @@
+class Solution {
+public:
+    long long maxRatings(vector<vector<int>>& units) {
+        int n=units.size();
+        long long ans=0;
+        vector<vector<int>>vec(n);
+        for(int i=0;i<n;i++){
+            sort(units[i].begin(),units[i].end());
+            vec[i].push_back(units[i][0]);
+            if(units[i].size()>1){
+                vec[i].push_back(units[i][1]);
+            }
+        }
+        sort(vec.begin(),vec.end(),[] (auto &a,auto &b){
+            if(a.size()<2 || b.size()<2){
+                return a[0]<b[0];
+            }
+else{if(a[1]==b[1]){
+                return a[0]<b[0];
+            }
+           else  return a[1]<b[1];
+        }
+        });
+        for(int i=1;i<n;i++){
+            if(vec[i].size()<2){
+                ans+=vec[i][0];
+            }else{
+                vec[0].push_back(vec[i][0]);
+                ans+=vec[i][1];
+            }
+        }
+        ans+=*min_element(vec[0].begin(),vec[0].end());
+        return ans;
+    }
+};
