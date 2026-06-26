@@ -23,3 +23,6 @@ for(int i=0;i<n;i++){
     }
 }
 return ans;
+
+//or you can use prefic suffix sum trick
+pre[j+1]-pre[i]  will give cnt of target in given range
