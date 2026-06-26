@@ -10,3 +10,16 @@ for(int i=0;i<n;i++){
     }
 }
 return cnt;
+
+//method 2
+target==nums[i]?1:-1;
+int cnt=0,ans=0;
+for(int i=0;i<n;i++){
+    for(int j=i;j<n;j++){
+        cnt+=(target==nums[i]?1:-1);
+        if(cnt>0){
+            ans++;
+        }
+    }
+}
+return ans;
