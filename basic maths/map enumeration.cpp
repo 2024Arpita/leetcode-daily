@@ -36,3 +36,7 @@ public:
     }
 };
 
+//in this question normal brute i.e trying to find max possible seuqnce by taking cur num as start works
+// because we are exponentially inc
+//so max time complexity = O(n*(log(log(maxnum))))
+///space complexity= O(n)
