@@ -17,3 +17,4 @@ public:
         return ans;
     }
 };
+//we can also do this with kmp
