@@ -22,3 +22,19 @@ public:
     }
 };
 //standard two pointer approach
+
+//new approach for last index storing
+class Solution {
+public:
+    int numberOfSubstrings(string s) {
+        //by tracking last index
+        int n=s.length();
+        int ans=0;
+        vector<int>mini(3,-1);
+        for(int i=0;i<n;i++){
+            mini[s[i]-'a']=i;
+            ans+=(1+min({mini[0],mini[1],mini[2]}));
+        }
+        return ans;
+    }
+};
