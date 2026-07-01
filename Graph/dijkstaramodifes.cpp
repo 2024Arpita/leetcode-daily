@@ -2,6 +2,7 @@
 class Solution {
 public:
     int maximumSafenessFactor(vector<vector<int>>& grid) {
+
         int n=grid.size(); 
         if(grid[0][0]==1 || grid[n-1][n-1]==1) return 0;
         vector<vector<int>>dis(n,vector<int>(n,INT_MAX));
@@ -17,6 +18,7 @@ public:
         }
         int dr[4]={-1,1,0,0};
         int dc[4]={0,0,1,-1};
+        //multisource bfs to find minm distance of each cell with nearest thief
         while(!q.empty()){
             auto [r,c,val]=q.front();
             q.pop();
@@ -28,16 +30,21 @@ public:
                 }
             }
         }
-        vector<vector<int>>safe(n,vector<int>(n,0));
+        //will do dijskta ro maximise safe val 
+        vector<vector<int>>safe(n,vector<int>(n,0)); //to store max safeval for each cell 
         priority_queue<t>pq;
         pq.push({dis[0][0],0,0});
         while(!pq.empty()){
             auto [val,r,c]=pq.top();pq.pop();
             if(r==n-1 && c==n-1)  return val;
+            //explore each neighbour and try to find whether current
+            //  path reduces their safeval or inc my comparing their
+            //  dis[nr][nc] with running val
               for(int i=0;i<4;i++){
                 int nr=r+dr[i],nc=c+dc[i];
                 if(nr>=0 && nc>=0 && nc<n && nr<n ){
                    int news=min(val,dis[nr][nc]);
+                   //update only if maximise
                    if(news>safe[nr][nc]){
                     safe[nr][nc]=news;
                     pq.push({news,nr,nc});
@@ -45,6 +52,6 @@ public:
                 }
             }
         }
-        return safe[n-1][n-1];
+        return safe[n-1][n-1]; //will store maxval possible in each path
     }
 };
