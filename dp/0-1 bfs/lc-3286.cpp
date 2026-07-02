@@ -34,3 +34,9 @@ public:
         return false;
     }
 };
+//pattern recognition
+//0/1 edge weight
+//find min dis
+//use deque
+// for 0 push_front()
+//for 1 push_back()
