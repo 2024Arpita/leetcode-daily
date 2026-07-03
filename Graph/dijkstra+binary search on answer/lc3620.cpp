@@ -51,3 +51,22 @@ public:
 //also in this question they aksed to find min score if i take x as that minm then answer is also possible to va which are greater than that minim 
 // so their is monotonocity in the code
 //applied binary search on anser+dijksta to find minm <=k
+
+//************* */
+// General intuition
+
+// Whenever you see
+
+// Is answer ≥ X?
+
+// Ask yourself:
+
+// If it's true for X, is it automatically true for smaller values?
+
+// or
+
+// If it's false for X, is it automatically false for larger values?
+
+// If yes, you've found monotonicity.
+//here if all edge  ==40 find  minim thenn all less than 40 are also possible 
+// but not true for all greater >40 so monotonicity here 
