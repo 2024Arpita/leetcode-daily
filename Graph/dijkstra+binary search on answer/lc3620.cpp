@@ -46,3 +46,8 @@ public:
         return ans;
     }
 };
+
+//very good question since it asked to find maximum of minimum -->might be binary search
+//also in this question they aksed to find min score if i take x as that minm then answer is also possible to va which are greater than that minim 
+// so their is monotonocity in the code
+//applied binary search on anser+dijksta to find minm <=k
