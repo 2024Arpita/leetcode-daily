@@ -24,3 +24,6 @@ public:
         return mini;
     }
 };
+//we have to take minm edge weight in component having1 
+// for this we can do normal dfs and update edw wether that node is visited or not
+// since reviisting is alloweded
