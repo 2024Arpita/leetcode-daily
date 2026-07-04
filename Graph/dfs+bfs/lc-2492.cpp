@@ -79,3 +79,6 @@ public:
         return mini;
     }
 };
+//here we just do dsu findparent of 1 
+// and after connectning traverse in edge one more time to find minim edw in that 1 component
+// 
