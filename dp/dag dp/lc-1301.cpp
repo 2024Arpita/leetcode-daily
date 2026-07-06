@@ -47,3 +47,7 @@ public:
         return {(int)dis[0][0], (int)ways[0][0]};
     }
 };
+//if we think of dijkstra it will fails 
+// since we have repetion like on coming 
+// back we can get better  value we used dp
+
