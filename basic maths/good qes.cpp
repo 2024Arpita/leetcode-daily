@@ -39,3 +39,4 @@ public:
         return ans;
     }
 };
+///just perform operations optimally using mod and mintainign array
