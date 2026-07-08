@@ -18,3 +18,4 @@ public:
         return 1LL*sum*digsum;
     }
 };
+/////simple question
