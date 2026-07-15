@@ -10,4 +10,5 @@ public:
         }
         return __gcd(evsum,odsum);
     }
+    //simple quetion
 };
