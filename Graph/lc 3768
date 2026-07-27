@@ -1,0 +1,37 @@
+class Solution {
+private:
+    vector<long long>dfs(int node,int par,vector<vector<int>>&adj,vector<int>&totgrps,long long &ans,vector<int>& group){
+        vector<long long>grps(21,0);
+        grps[group[node]]++;
+        for(auto &it:adj[node]){
+            if(it==par) continue;
+            vector<long long>cgrps=dfs(it,node,adj,totgrps,ans,group);
+            for(int i=0;i<21;i++){
+                if(cgrps[i]==0) continue;
+                ans+=(totgrps[i]-cgrps[i])*1LL*cgrps[i];
+                grps[i]+=cgrps[i];
+            }
+        }
+        return grps;
+    }
+public:
+    long long interactionCosts(int n, vector<vector<int>>& edges, vector<int>& group) {
+        vector<vector<int>>adj(n);
+        for(auto &it:edges){
+            int u=it[0],v=it[1];
+            adj[u].push_back(v);
+            adj[v].push_back(u);
+        }
+        
+        vector<int>totgrps(21,0);
+        for(int num:group){
+            totgrps[num]++;
+        }
+        long long ans=0;
+        dfs(0,-1,adj,totgrps,ans,group);
+        return ans;
+    }
+};
+
+///basically hmko sare edges ka length nikalna tha to it was bit confusing so what we did we try to 
+///calculate contribution of each edges in connecting groups bellow it to groups above it
