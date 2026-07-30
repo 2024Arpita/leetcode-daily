@@ -28,3 +28,12 @@ public:
         return max(solve(nums,k,true),solve(nums,k,false));
     }
 };
+  // since hamare ko maxm subarr sum nikalna h after performing operation
+        // we will do something like kadane but since hmko certin operations bhi
+        // krne h to maxsum either without opr block m ho either inside or block
+        // m ya phir after opr block ho to isliye hm maintain krenge teen state
+        // before mid and after so in before either we continue with prev
+        // fbrfore or with curr eklem for mid either we continue with prev elem
+        // or continue with new num s new start or continue with mid only and
+        // for last after opertion eiher it exisxter before opr or eihrt fter
+        // opr
